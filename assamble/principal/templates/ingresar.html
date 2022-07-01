@@ -3,14 +3,17 @@
 {% load static %}
 
 {% block contenido %}
+//no se porque no se me modifica los cambio que hago en este html y hice uno en ingresar2 si lo pueden solucionar joya si no se puede solucionar por mi quedamos con el ingresar 2
 
 <div class="form-body">
     <img src="{% static 'principal/assets/usuario2.png' %} " alt="foto-perfil">
-    <p class="texto">bienvenido a Assamble s.a platform</p>
-    <form class="login-form">
-        <input type="text" placeholder="ingresar usuario.">
-        <input type="password" placeholder="ingrese su contraseña">
-        <button>iniciar sesion</button>
+    <p class="texto">bienvenido a Assamble s.a platform asdasdasd</p>
+    <form class="login-form" method ="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="ingresar usuario." name="username" autofocus autocapitalize="none" autocomplete ="username" maxlength="150" required id="id_username">
+        <input type="password" placeholder="ingrese su contraseña" name ="password" autocomplete="current-password" required id="id_password">
+        
+        <button type="submit">iniciar sesion</button>
     </form>
 </div>
 

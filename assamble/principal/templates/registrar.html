@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<style>
+    .formularioRegistrar{
+        color: white;
+        margin: 100px;
+        margin-top :400px;
+        border: 5px solid;
+        text-align: center;
+    }
+
+    
+
+</style>
+<h1>inicio</h1>
+<form class="formularioRegistrar" action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit" > registrarse</button>
+
+</form>
+
+{% endblock %}

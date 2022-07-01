@@ -1,0 +1,18 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+<div class="form-body">
+    <img src="{% static 'principal/assets/usuario2.png' %} " alt="foto-perfil">
+    <p class="texto">bienvenido a Assamble s.a platform</p>
+    <form class="login-form" method ="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> enviar</button>
+    </form>
+</div>
+
+{% endblock %}
