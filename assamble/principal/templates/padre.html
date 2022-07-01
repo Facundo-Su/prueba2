@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href=" {% static 'principal/css/style.css' %} ">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSAMBLE CO.</title>
+    
+</head>
+<body>
+    
+    <!--navbar-->
+    <header class="header">
+        <script src="https://kit.fontawesome.com/17f6cda60c.js" crossorigin="anonymous"></script>
+        <nav class="nav">
+            
+            <a href="{% url 'inicio' %}" class="logo"><img src="{% static 'principal/assets/assamble-white.png' %} " alt="assamble co."></a>
+            <ul class="nav-menu .nav-menu_visible ">
+                <li class="nav-menu-item"><a href="{% url 'sobreNosotros' %}" class="nav-menu-link nav-link">about us</a></li>
+                <li class="nav-menu-item"><a href="{% url 'contacto' %}" class="nav-menu-link nav-link">contacto</a></li>
+                <li class="nav-menu-item"><a href="{% url 'ingresar' %}" class="nav-menu-link nav-link ">ingresar</a></li>
+                <li class="nav-menu-item"><a href="{% url 'subirCv' %}" class="nav-menu-link nav-link nav-menu-link_active">subir cv</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <!--section-->
+    
+    {% block contenido %}
+    
+    
+    {% endblock contenido %}
+
+    <!--
+        pie de pagina
+    -->
+
+    <footer class="pie-de-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="./index.html">
+                        <img src="{% static 'principal/assets/logo-assamble-black-modified.png' %} " alt="logo">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, eaque?</P>
+                <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, eaque?</P>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social"> 
+                    
+                        <a href="" class="fa fa-facebook"></a>
+                        <i class="fa-brands fa-instagram"></i>
+                        <a href="#" class="fa fa-instagram"></a>
+                        
+                        <a href="#" class="fa fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grupo-2">
+            <small> &copy; 2022 <b>ASSAMBLE S.A </b> - Todos los derechos reservados. </small>
+
+        </div>
+    </footer>
+
+</body>
+</html>

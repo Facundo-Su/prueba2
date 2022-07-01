@@ -1,0 +1,77 @@
+{% extends 'padre.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<style>
+    .logo-contacto{
+        color: white;
+    }
+    .contacto-agrupado{
+        color: white;
+    }
+</style>
+
+<main>
+    <div class="contenedor">
+        
+        
+        <h1 class="logo-contacto">contacta<span>nos</span></h1>
+        
+        <div class="contacto-agrupado">
+            <div class="contacto-form">
+                <h3>contactanos</h3>
+                <form action="">
+                    <p>
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" name="nombre completo" id="nombre">
+                    </p>
+                    <p>
+                        <label for="email">Direccion email</label>
+                        <input type="emai" name="Emailadress" id="email">
+                    </p>
+                    <p>
+                        <label for="telefono">telefono</label>
+                        <input type="tel" id="telefono" name="tel_contacto">
+                    </p>
+                    <p>
+                        <label for="coment">comentario</label>
+                        <input type="text" id="coment" name="comentario">
+                    </p>
+                    <p>
+                        <label for="message" class="bloque">mensaje</label>
+                        <textarea name="mensaje" id="message" rows="3"></textarea>
+                    </p>
+                    <p>
+                        <button class="bloque" type="submit">
+                            Enviar
+                        </button>
+                    </p>
+                </form>
+            </div>
+
+            <div class="contacto-info">
+                <h4>mas info.</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>
+                        calle Assamble
+                    </li>
+                    <li><i class="fa-solid fa-square-phone"></i>
+                        (011) 111-1111
+                    </li>
+                    <li ><i class="fa-solid fa-square-envelope"></i>
+                        Assamble.sa@gamil.com
+                    </li>
+
+                </ul>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint modi quis quos voluptatem praesentium perspiciatis fugiat unde reiciendis nam dolorum.</p>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</main>
+
+{% endblock %}
