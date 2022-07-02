@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,logout,authenticate
-from .forms import CustomUserCreationForm
+
+from principal.models import Servicio
+from .forms import Alta_servicio, CustomUserCreationForm
 
 # Create your views here.
 
@@ -46,12 +48,28 @@ def login_request(request):
     return render(request , "ingresar2.html",context)
 
 
+def altaServicio(request):
 
+    if request.method =="POST":
+        mi_formulario = Alta_servicio( request.POST )
+
+        if mi_formulario.is_valid():
+
+            datos = mi_formulario.cleaned_data          
+            servicio = Servicio( nombre_servicio=datos['nombre_servicio'], precio_servicio=datos['precio_servicio'], calidad_servicio=datos['calidad_servicio'], descripcion_producto=datos['descripcion_producto'])
+            servicio.save()
+            return render( request , "alta_servicio.html")
+        
+        return HttpResponse("hola")
+
+    return render( request, "alta_servicio.html")
 
 def registrar(request):
     if request.method == "POST":
         form = UserCreationForm(data =request.POST)
+
         if form.is_valid():
+            
             form.save()
             return HttpResponse("Usuario creado")
         

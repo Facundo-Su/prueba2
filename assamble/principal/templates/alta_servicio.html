@@ -1,0 +1,35 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+<style>
+    h1{
+        color: white;
+        margin: 30px;
+    }
+    p{
+        color: white;
+    }
+</style>
+
+<form action="altaServicio" method="POST">
+
+    {% csrf_token %}
+
+    <p>Nombre del servicio:</p>
+    <input type="text" name="nombre_servicio" required>
+    <p>Precio del servicio:</p>
+    <input type="number" name="precio_servicio" required>
+    <p>Calidad del servicio:</p>
+    <input type="text" name="calidad_servicio" required>
+    <p>Descripción del servicio:</p>
+    <input type="text" name="descripcion_producto" required>
+    
+    <input type="submit" value="Subir producto">
+
+</form>
+
+{% endblock %}

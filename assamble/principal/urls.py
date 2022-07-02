@@ -8,4 +8,5 @@ urlpatterns = [
     path("suba_su_cv",views.subirCv , name ="subirCv"),
     path("ingresar",views.login_request , name = "ingresar" ),
     path("registrar",views.registrar, name ="registrar"),
+    path("altaServicio",views.altaServicio , name ="altaServicio")
 ]
