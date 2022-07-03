@@ -8,3 +8,6 @@ class Servicio(models.Model):
     precio_servicio = models.IntegerField()
     calidad_servicio = models.CharField(max_length=40)
     descripcion_producto = models.CharField(max_length=500)
+
+    def __str__(self) -> str:
+        return f"Servicio: {self.nombre_servicio}"

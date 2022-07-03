@@ -26,9 +26,14 @@
                 <td>{{n.precio_servicio}}</td>
                 <td>{{n.calidad_servicio}}</td>
                 <td>{{n.descripcion_producto}}</td>
+                <td><a href="{% url 'editar_servicio' n.id %}">EDITAR</a></td>
+                <td><a href="{% url 'eliminar_servicio' n.id %}">BORRAR</a></td>
             </tr>
             {% endfor %}
         </tbody>
       </table>
+      <button>
+        <a href="altaServicio">Agregar otro servicio</a>
+      </button>
 </body>
 </html>

@@ -15,20 +15,20 @@
     }
 </style>
 
-<form action="altaServicio" method="POST">
+<form action="{url 'editar_servicio' servicio.id}" method="POST">
 
     {% csrf_token %}
 
     <p>Nombre del servicio:</p>
-    <input type="text" name="nombre_servicio" required>
+    {{mi_formulario.nombre_servicio}}
     <p>Precio del servicio:</p>
-    <input type="number" name="precio_servicio" required>
+    {{mi_formulario.precio_servicio}}
     <p>Calidad del servicio:</p>
-    <input type="text" name="calidad_servicio" required>
+    {{mi_formulario.calidad_servicio}}
     <p>Descripción del servicio:</p>
-    <input type="text" name="descripcion_producto" required>
-    
-    <input type="submit" value="Subir servicio">
+    {{mi_formulario.descripcion_producto}}
+
+    <input type="submit" value="Editar servicio">
 
 </form>
 

@@ -15,4 +15,7 @@ urlpatterns = [
     path("servicios",views.servicios, name="servicios"),
     path("buscarServicios",views.buscar_servicio, name="buscarServicio"),
     path("buscar",views.buscar),
+    path("eliminar_servicio/<int:id>",views.eliminar_servicio, name="eliminar_servicio"),
+    path("editar_servicio/<int:id>", views.editar_servicio, name="editar_servicio"),
+    path("editar_servicio/", views.editar_servicio, name="editar_servicio"),
 ]

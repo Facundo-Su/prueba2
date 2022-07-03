@@ -90,6 +90,39 @@ def altaServicio(request):
 
     return render( request, "alta_servicio.html")
 
+def eliminar_servicio(request, id):
+
+    servicio = Servicio.objects.get(id = id)
+    servicio.delete()
+
+    servicio = Servicio.objects.all()
+
+    return render(request, "servicios.html", {"servicios": servicio})
+
+def editar_servicio(request, id):
+    
+    servicio = Servicio.objects.get(id=id)
+
+    if request.method == "POST":
+
+        mi_formulario = Alta_servicio(request.POST)
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+            servicio.nombre_servicio = datos['nombre_servicio']
+            servicio.precio_servicio = datos['precio_servicio']
+            servicio.calidad_servicio = datos['calidad_servicio']
+            servicio.descripcion_producto = datos['descripcion_producto']
+            servicio.save()
+
+            servicio =Servicio.objects.all()
+            return render(request, "servicios.html", {"servicios": servicio})
+    else:
+        mi_formulario = Alta_servicio(initial={'nombre_servicio': servicio.nombre_servicio, 'precio_servicio': servicio.precio_servicio, 'calidad_servicio': servicio.calidad_servicio, 'descripcion_producto': servicio.descripcion_producto})
+
+    return render(request, "editar_servicio.html", {"mi_formulario": mi_formulario})
+
+
+
 def registrar(request):
     if request.method == "POST":
         form = UserCreationForm(data =request.POST)
@@ -100,4 +133,4 @@ def registrar(request):
             return HttpResponse("Usuario creado")
         
     form = UserCreationForm()
-    return render( request , "registrar.html" , {"form":form})
+    return render( request , "registrar.html" , {"form":form, "servicios": servicios})
