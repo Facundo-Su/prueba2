@@ -123,6 +123,7 @@ def editar_servicio(request, id):
 
 
 
+
 def registrar(request):
     if request.method == "POST":
         form = UserCreationForm(data =request.POST)

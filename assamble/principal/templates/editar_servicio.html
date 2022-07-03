@@ -18,6 +18,7 @@
 <form action="{% url 'editar_servicio' servicio.id %}" method="POST">
 
     {% csrf_token %}
+    
 
     <p>Nombre del servicio:</p>
     {{mi_formulario.nombre_servicio}}
