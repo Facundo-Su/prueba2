@@ -104,7 +104,7 @@ def editar_servicio(request, id):
     servicio = Servicio.objects.get(id=id)
 
     if request.method == "POST":
-
+        
         mi_formulario = Alta_servicio(request.POST)
         if mi_formulario.is_valid():
             datos = mi_formulario.cleaned_data
@@ -119,7 +119,7 @@ def editar_servicio(request, id):
     else:
         mi_formulario = Alta_servicio(initial={'nombre_servicio': servicio.nombre_servicio, 'precio_servicio': servicio.precio_servicio, 'calidad_servicio': servicio.calidad_servicio, 'descripcion_producto': servicio.descripcion_producto})
 
-    return render(request, "editar_servicio.html", {"mi_formulario": mi_formulario})
+    return render(request, "editar_servicio.html", {"mi_formulario": mi_formulario, "servicio":servicio})
 
 
 
