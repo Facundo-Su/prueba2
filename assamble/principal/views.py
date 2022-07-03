@@ -9,6 +9,9 @@ from .forms import Alta_servicio, CustomUserCreationForm
 
 # Create your views here.
 
+def prueba(request):
+    return render(request,"prueba3.html")
+
 def inicio(request):
     return render(request , "main.html")
 
@@ -30,13 +33,14 @@ def login_request(request):
         
         if form.is_valid():
             usuario =form.cleaned_data.get("username")
+            
             contra = form.cleaned_data.get("password")
             
             user = authenticate(username=usuario, password =contra)
             
             if user is not None:
                 login(request,user)
-                return render(request ,"ingresadoCorrectamente.html",{"mensaje":f"Bienvenido {usuario}"})
+                return render(request ,"main.html",{"mensaje":f"Bienvenido {usuario}"})
             
             else:
                 return HttpResponse(f"Usuario Incorrecto")
