@@ -12,4 +12,7 @@ urlpatterns = [
     path("altaServicio",views.altaServicio , name ="altaServicio"),
     path("logout",LogoutView.as_view( template_name = "logout.html") , name="Logout"),
     path("prueba",views.prueba),
+    path("servicios",views.servicios, name="servicios"),
+    path("buscarServicios",views.buscar_servicio, name="buscarServicio"),
+    path("buscar",views.buscar),
 ]

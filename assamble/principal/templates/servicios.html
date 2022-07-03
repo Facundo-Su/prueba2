@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Calidad</th>
+            <th scope="col">Descripción</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+            {% for n in servicios %}
+            <tr>
+                <th scope="row">{{n.id}}</th>
+                <td>{{n.nombre_servicio}}</td>
+                <td>{{n.precio_servicio}}</td>
+                <td>{{n.calidad_servicio}}</td>
+                <td>{{n.descripcion_producto}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</body>
+</html>

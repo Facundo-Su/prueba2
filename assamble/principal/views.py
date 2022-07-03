@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,logout,authenticate
+from django.template import loader
+from django.http import HttpResponse
 
 from principal.models import Servicio
 from .forms import Alta_servicio, CustomUserCreationForm
@@ -26,6 +28,26 @@ def subirCv(request):
 
 def ingresar(request):
     return render(request , "ingresar.html")
+
+def servicios(request):
+    servicios = Servicio.objects.all()
+    dicc = {"servicios": servicios}
+    plantilla = loader.get_template("servicios.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse(documento)
+
+def buscar_servicio(request):
+
+    return render(request, "buscar_servicio.html")
+
+def buscar(request):
+
+    if request.GET['nombre_servicio']:
+        nombre_servicio = request.GET['nombre_servicio']
+        servicios = Servicio.objects.filter(nombre_servicio__icontains = nombre_servicio)
+        return render(request, "resultado_busqueda.html", {"servicios": servicios})
+    else:
+        return HttpResponse("Campo vacío")
 
 def login_request(request):
     if request.method =="POST":

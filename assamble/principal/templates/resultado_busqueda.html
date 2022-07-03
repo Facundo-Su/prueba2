@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if servicios %}
+
+    <ul>
+
+        {% for servicio in servicios %}
+            <li>Nombre: {{servicio.nombre_servicio}}</li>
+            <li>Precio: {{servicio.precio_servicio}}</li>
+            <li>Calidad: {{servicio.calidad_servicio}}</li>
+            <li>Descrioción: {{servicio.descripcion_producto}}</li>
+        {%  endfor %}
+
+    </ul>
+
+    {% else %}
+        <p>No se encontraron los servicios</p>
+    {% endif %}
+
+</body>
+</html>
