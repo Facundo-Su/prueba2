@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <link rel="stylesheet" href=" {% static 'principal/css/style.css' %} ">
@@ -20,10 +20,14 @@
             <ul class="nav-menu .nav-menu_visible ">
                 <li class="nav-menu-item"><a href="{% url 'sobreNosotros' %}" class="nav-menu-link nav-link">about us</a></li>
                 <li class="nav-menu-item"><a href="{% url 'contacto' %}" class="nav-menu-link nav-link">contacto</a></li>
-                <li class="nav-menu-item"><a href="{% url 'ingresar' %}" class="nav-menu-link nav-link ">login</a></li>
-                <li class="nav-menu-item"><a href="{% url 'registrar' %}" class="nav-menu-link nav-link ">sing up</a></li>
+                <li class="nav-menu-item"><a href="{% url 'Logout' %}" class="nav-menu-link nav-link ">logout</a></li>
+                <li class="nav-menu-item"><a href="{% url 'servicios_usuario' %}" class="nav-menu-link nav-link ">Servicios</a></li>
+                <li class="nav-menu-item"><a href="{% url 'buscarServicio' %}" class="nav-menu-link nav-link ">Buscar servicios</a></li>
                 <li class="nav-menu-item"><a href="{% url 'subirCv' %}" class="nav-menu-link nav-link nav-menu-link_active">subir cv</a></li>
-                
+                {% if request.user.is_authenticated %}
+                    <img src="{{url}}" alt="">
+                    <li class="nav-menu-item"><a class="text-muted small mb-4">Bienvenido, {{user.username}}</a></li>
+                {% endif %}
             </ul>
         </nav>
         

@@ -5,9 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 from django.template import loader
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
-from principal.models import Servicio
-from .forms import Alta_servicio, CustomUserCreationForm
+from principal.models import Servicio, Avatar
+from .forms import Alta_servicio, CustomUserCreationForm, UserEditForm
 
 # Create your views here.
 
@@ -28,6 +29,12 @@ def subirCv(request):
 
 def ingresar(request):
     return render(request , "ingresar.html")
+
+def servicios_usuario(request):
+    return render(request, "servicios_usuario.html")
+
+def inicio_usuario(request):
+    return render(request, "padre_usuario.html")
 
 def servicios(request):
     servicios = Servicio.objects.all()
@@ -62,7 +69,8 @@ def login_request(request):
             
             if user is not None:
                 login(request,user)
-                return render(request ,"main.html",{"mensaje":f"Bienvenido {usuario}"})
+                avatares = Avatar.objects.filter(user=request.user.id)
+                return render(request, "padre_usuario.html", {"url": avatares[0].imagen.url})
             
             else:
                 return HttpResponse(f"Usuario Incorrecto")
@@ -104,7 +112,7 @@ def editar_servicio(request, id):
     servicio = Servicio.objects.get(id=id)
 
     if request.method == "POST":
-
+        
         mi_formulario = Alta_servicio(request.POST)
         if mi_formulario.is_valid():
             datos = mi_formulario.cleaned_data
@@ -119,7 +127,8 @@ def editar_servicio(request, id):
     else:
         mi_formulario = Alta_servicio(initial={'nombre_servicio': servicio.nombre_servicio, 'precio_servicio': servicio.precio_servicio, 'calidad_servicio': servicio.calidad_servicio, 'descripcion_producto': servicio.descripcion_producto})
 
-    return render(request, "editar_servicio.html", {"mi_formulario": mi_formulario})
+    return render(request, "editar_servicio.html", {"mi_formulario": mi_formulario, "servicio":servicio})
+
 
 
 
@@ -134,3 +143,31 @@ def registrar(request):
         
     form = UserCreationForm()
     return render( request , "registrar.html" , {"form":form, "servicios": servicios})
+
+@login_required
+def editarPerfil(request):
+
+    usuario = request.user
+
+    if request.method == "POST":
+        
+        miFormulario = UserEditForm(request.POST)
+
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
+
+            usuario.email = informacion['email']
+            password = informacion['password1']
+            usuario.set_password(password)
+            usuario.save()
+
+            return render(request,"main.html")
+
+    else:
+        miFormulario = UserEditForm(initial= {'email': usuario.email})
+    
+    return render(request, "editar_perfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+
+
+

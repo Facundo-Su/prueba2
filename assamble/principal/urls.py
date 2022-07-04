@@ -18,4 +18,6 @@ urlpatterns = [
     path("eliminar_servicio/<int:id>",views.eliminar_servicio, name="eliminar_servicio"),
     path("editar_servicio/<int:id>", views.editar_servicio, name="editar_servicio"),
     path("editar_servicio/", views.editar_servicio, name="editar_servicio"),
+    path("editarPerfil", views.editarPerfil, name="editarPerfil"),
+    path("servicios_usuario", views.servicios_usuario, name="servicios_usuario"),
 ]
