@@ -31,7 +31,11 @@ def ingresar(request):
     return render(request , "ingresar.html")
 
 def servicios_usuario(request):
-    return render(request, "servicios_usuario.html")
+    servicios = Servicio.objects.all()
+    dicc = {"servicios": servicios}
+    plantilla = loader.get_template("servicios_usuario.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse(documento)
 
 def inicio_usuario(request):
     return render(request, "padre_usuario.html")
