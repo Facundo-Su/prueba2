@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<style>
+    .post h1{
+        color:white;
+    }
+
+</style>
+
+<div class ="post">
+
+    
+    <h1> Publicaciones</h1>
+
+    {% for publicacion in publicaciones %}
+    <div>
+        
+
+    </div>
+    
+    {% endfor %}
+
+</div>
+
+{% endblock  %}
