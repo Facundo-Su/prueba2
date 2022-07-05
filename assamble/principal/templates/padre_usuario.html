@@ -10,22 +10,28 @@
     <title>ASSAMBLE CO.</title>
     
 </head>
+
 <body>
+    <style>
+        .nav-menu-item{
+            color: white;
+        }
+    </style>
     <!--navbar-->
     <header class="header">
         <script src="https://kit.fontawesome.com/17f6cda60c.js" crossorigin="anonymous"></script>
         <nav class="nav">
-            <a href="{% url 'inicio' %}" class="logo"><img src="{% static 'principal/assets/assamble-white.png' %}" alt="assamble co."></a>
            
             <ul class="nav-menu .nav-menu_visible ">
                 <li class="nav-menu-item"><a href="{% url 'sobreNosotros' %}" class="nav-menu-link nav-link">about us</a></li>
                 <li class="nav-menu-item"><a href="{% url 'contacto' %}" class="nav-menu-link nav-link">contacto</a></li>
                 <li class="nav-menu-item"><a href="{% url 'Logout' %}" class="nav-menu-link nav-link ">logout</a></li>
                 <li class="nav-menu-item"><a href="{% url 'servicios_usuario' %}" class="nav-menu-link nav-link ">Servicios</a></li>
+                <li class="nav-menu-item"><a href="{% url 'post' %}" class="nav-menu-link nav-link ">Post</a></li>
                 <li class="nav-menu-item"><a href="{% url 'buscarServicio' %}" class="nav-menu-link nav-link ">Buscar servicios</a></li>
                 <li class="nav-menu-item"><a href="{% url 'subirCv' %}" class="nav-menu-link nav-link nav-menu-link_active">subir cv</a></li>
                 {% if request.user.is_authenticated %}
-                    <img src="{{url}}" alt="" width="50px" heigth ="50px">
+                    <img src="{{url}}" alt="" width="150px" heigth ="10px">
                     <li class="nav-menu-item"><a class="text-muted small mb-4">Bienvenido, {{user.username}}</a></li>
                 {% endif %}
             </ul>
