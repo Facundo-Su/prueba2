@@ -11,3 +11,5 @@ Daniel realizó los models, de servicio y avatar, así como el CRUD para el mode
 Link para mirar el funcionamiento de la página:
 
 Maxi, lo hicimos en contra tiempo, mañana grabamops el video y lo subimos, muchas gracias por su comprensión, cualquier cosa estamos en contacto, buena noche.
+
+PD. no nos dió tiempo cambiar el nombre del repo por las prisas, espero no haya problema, de ser así igual estoy al pendiente.
