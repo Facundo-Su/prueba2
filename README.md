@@ -1,8 +1,8 @@
 # prueba2
 Integrantes:
-Leo Zevola
-Facundo Su
-Daniel Rosado Aguilar
+Leo Zevola,
+Facundo Su,
+Daniel Rosado Aguilar,
 
 Leo hizo las templates en html y css puro, no se usaron plantillas de boostrap o de otro lado.
 Facundo se encargó el sing in, login, log out y las apps bases, así como la conexión entre páginas y afinaciones del html y css.
