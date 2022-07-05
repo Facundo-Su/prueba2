@@ -7,8 +7,8 @@ from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
-from principal.models import Servicio, Avatar
-from .forms import Alta_servicio, CustomUserCreationForm, UserEditForm
+from principal.models import Servicio, Avatar, Mensaje
+from .forms import Alta_servicio, CustomUserCreationForm, UserEditForm, Alta_Mensaje
 
 # Create your views here.
 
@@ -98,7 +98,7 @@ def altaServicio(request):
             servicio.save()
             return render( request , "alta_servicio.html")
         
-        return HttpResponse("hola")
+        return HttpResponse("Error al dar de alta el servicio")
 
     return render( request, "alta_servicio.html")
 
@@ -148,6 +148,30 @@ def registrar(request):
     form = UserCreationForm()
     return render( request , "registrar.html" , {"form":form, "servicios": servicios})
 
+def post(request):
+    post = Mensaje.objects.all()
+    dicc = {"post": post}
+    plantilla = loader.get_template("post.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse(documento)
+
+def subir_post(request):
+
+    if request.method =="POST":
+        mi_formulario = Alta_Mensaje( request.POST )
+
+        if mi_formulario.is_valid():
+
+            datos = mi_formulario.cleaned_data          
+            post = Mensaje( titulo=datos['titulo'], autor=datos['autor'], mensaje=datos['mensaje'])
+            post.save()
+            return render( request , "post.html")
+        
+        return HttpResponse("Error al subir el post")
+
+    return render( request, "alta_post.html")
+
+
 @login_required
 def editarPerfil(request):
 
@@ -172,6 +196,9 @@ def editarPerfil(request):
         miFormulario = UserEditForm(initial= {'email': usuario.email})
     
     return render(request, "editar_perfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+
+
+
 
 
 

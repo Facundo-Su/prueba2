@@ -14,6 +14,13 @@ class Alta_servicio(forms.Form):
     calidad_servicio = forms.CharField(max_length=40)
     descripcion_producto = forms.CharField(max_length=500)
 
+class Alta_Mensaje(forms.Form):
+
+    titulo = forms.CharField(max_length=40)
+    autor = forms.CharField(max_length=40)
+    mensaje = forms.CharField(max_length=500)
+    comentario = forms.CharField(max_length=500)
+
 class UserEditForm(UserCreationForm):
 
     email = forms.EmailField(label="Modificar")
@@ -24,4 +31,5 @@ class UserEditForm(UserCreationForm):
         model = User
         fields = ['email', 'password1', 'password2']
         help_text = {k: "" for k in fields}
+    
 

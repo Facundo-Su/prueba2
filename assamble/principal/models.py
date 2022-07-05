@@ -19,4 +19,11 @@ class Avatar(models.Model):
 
     user= models.ForeignKey(User, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to = 'avatares', null=True, blank=True)
+
+class Mensaje(models.Model):
+
+    titulo = models.CharField(max_length=40)
+    autor = models.CharField(max_length=40)
+    mensaje = models.CharField(max_length=500)
+    comentario = models.CharField(max_length=500)
     
