@@ -1,3 +1,4 @@
+from ast import Name
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LogoutView
@@ -21,4 +22,5 @@ urlpatterns = [
     path("editarPerfil", views.editarPerfil, name="editarPerfil"),
     path("servicios_usuario", views.servicios_usuario, name="servicios_usuario"),
     path("post", views.post, name="post"),
+    path("subirPost",views.subir_post,name="subirPost")
 ]

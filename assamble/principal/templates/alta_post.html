@@ -1,0 +1,25 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<form action="subirPost" method="POST">
+
+    {% csrf_token %}
+
+    <p>Titulo:</p>
+    <input type="text" name="titulo" required>
+    <p>Autor:</p>
+    <input type="text" name="autor" required>
+    <p>Mensaje:</p>
+    <input type="text" name="mensaje" required>
+    
+    <input type="submit" value="Subir post">
+
+</form>
+
+
+
+{% endblock  %}

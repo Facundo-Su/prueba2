@@ -7,22 +7,45 @@
 <style>
     .post h1{
         color:white;
+        margin:30px;
+    }
+    .post h2{
+        color:white;
+    }
+    .post{
+        border: 5px solid white;
+        margin : 30px;
     }
 
+    .post-contenido{
+        border: 5px solid darkblue;
+        width:80%;
+    }
+
+    .mensaje{
+        border:5px solid blue;
+    }
+
+    .botonPost{
+        margin: 50px
+    }
 </style>
 
 <div class ="post">
-
-    
     <h1> Publicaciones</h1>
 
-    {% for publicacion in publicaciones %}
-    <div>
-        
+    {% for publicacion in post %}
+    <div class="post-contenido">
+            <h1>titulo : {{publicacion.titulo}}</h1>
+            <h1>autor: {{publicacion.autor}} </h1>
+            <h2>mensaje</h2>
+            <h1 class="mensaje">{{publicacion.mensaje}}</th1d>
 
     </div>
     
     {% endfor %}
+
+    <a href="{% url 'subirPost' %}">AgregarPost</a>
 
 </div>
 

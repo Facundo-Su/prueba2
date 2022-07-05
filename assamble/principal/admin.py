@@ -4,4 +4,5 @@ from .models import *
 
 admin.site.register(Servicio)
 admin.site.register(Avatar)
+admin.site.register(Mensaje)
 

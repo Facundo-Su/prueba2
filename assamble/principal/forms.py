@@ -19,7 +19,6 @@ class Alta_Mensaje(forms.Form):
     titulo = forms.CharField(max_length=40)
     autor = forms.CharField(max_length=40)
     mensaje = forms.CharField(max_length=500)
-    comentario = forms.CharField(max_length=500)
 
 class UserEditForm(UserCreationForm):
 

@@ -25,5 +25,4 @@ class Mensaje(models.Model):
     titulo = models.CharField(max_length=40)
     autor = models.CharField(max_length=40)
     mensaje = models.CharField(max_length=500)
-    comentario = models.CharField(max_length=500)
     

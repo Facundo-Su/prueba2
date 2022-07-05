@@ -25,7 +25,7 @@
                 <li class="nav-menu-item"><a href="{% url 'buscarServicio' %}" class="nav-menu-link nav-link ">Buscar servicios</a></li>
                 <li class="nav-menu-item"><a href="{% url 'subirCv' %}" class="nav-menu-link nav-link nav-menu-link_active">subir cv</a></li>
                 {% if request.user.is_authenticated %}
-                    <img src="{{url}}" alt="">
+                    <img src="{{url}}" alt="" width="50px" heigth ="50px">
                     <li class="nav-menu-item"><a class="text-muted small mb-4">Bienvenido, {{user.username}}</a></li>
                 {% endif %}
             </ul>
